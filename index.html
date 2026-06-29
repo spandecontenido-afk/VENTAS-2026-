@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Home</title>
+  <meta name="theme-color" content="#FF8C00" />
+  <meta name="apple-mobile-web-app-title" content="Ventas" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <style>
     :root {
       --orange-primary: #FF8C00;
@@ -26,7 +30,7 @@
       width: 100%;
       min-height: 100%;
       margin: 0;
-      background: var(--background);
+      background: linear-gradient(180deg, #FF8C00 0%, #FF8C00 42%, #F9E5CA 100%);
       font-family: var(--font-main);
     }
 
@@ -35,6 +39,7 @@
       justify-content: center;
       align-items: flex-start;
       overflow-x: hidden;
+      min-height: 100dvh;
     }
 
     button,
@@ -44,13 +49,16 @@
 
     .phone {
       position: relative;
-      width: 375px;
-      height: 812px;
-      max-width: 100vw;
+      width: 100vw;
+      height: 100dvh;
+      min-height: 100vh;
+      max-width: none;
       overflow-y: auto;
       overflow-x: hidden;
-      background: var(--background);
+      background: linear-gradient(180deg, #FF8C00 0%, #FF8C00 42%, #F9E5CA 100%);
       scrollbar-width: none;
+      padding-top: calc(env(safe-area-inset-top, 0px) + 8px);
+      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
     }
 
     .phone::-webkit-scrollbar {
@@ -61,15 +69,17 @@
       position: relative;
       width: 375px;
       min-height: 1031px;
+      margin: 0 auto;
       background: var(--background);
     }
 
     .gradient {
       position: absolute;
-      width: 377px;
+      width: max(100vw, 377px);
       height: 762px;
-      left: -2px;
+      left: 50%;
       top: -1px;
+      transform: translateX(-50%);
       background: linear-gradient(180deg, #FF8C00 38.46%, rgba(255, 255, 255, 0) 100%);
       pointer-events: none;
     }
@@ -1003,10 +1013,9 @@
     }
 
     @media (max-width: 374px) {
-      .phone {
+      .screen {
         transform-origin: top center;
         transform: scale(calc(100vw / 375));
-        height: calc(812px * (100vw / 375));
       }
     }
   </style>
